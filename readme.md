@@ -1,53 +1,25 @@
-# Guidelines
-You will have to submit this task with git (you can use Github or Bitbucket). 
-After you are finishing make sure the code is pushed and send an email/skype with a link.
+This project shows Realtime values of assets and have following functionality
 
-The code should be runnable on Chrome (don't warry about the rest), NPM start or something simple for run it.
-
-Stack: React, Redux, Rxjs (or similar  lib), ES6/ES7 or Typescript
-
-We are looking for best practices, maintainability, knowledge general programming skills/abilities
-
-## You have this model
-```typescript
-interface Asset {
-	id: number
-	assetName: string; // "USD", Samsung Electronics Co Ltd : "SSNLF"
-	price: number; // asset current price relative to USD
-	lastUpdate: number; // unix timestamp
-	type: "Currency" | "Stock"; // asset type Currency (e.g. USD, EUR...) or Stock (Samsung, Google)
-}
-```
-
-## Mock 
-
-Creates 400 random assets, 200 currencies and 200 stocks (just the types is iterating, you don't need real assets) id 1-400
-
-Create a stream from those 400 assets that fires 1 update per secound for each asset:
-* price must be changed each update by -1 to 1 and with the current timestamp, the rest will stay the same
-
-you can find the mock at mock.js
-It exports a mock, rxjs observable with the required stream
-
-This is not a starter or boilerplate it is just to confirm that the mock isn't broken
-You still can boot your project how ever you want
-
-### see the mock running
-npm/yarn install
-npm test
-
-You should see console log with the object on the steam
-
-
-## Create the following app using this stream:
-
-* Show a table with all of the assets
-* The prices should be updating every second as described above
+* A table with all of the assets information
+* The prices update every second
 * Allow to sort for each one of the model fields
 * Allow to filter for each one of the model fields
 
-**Optional**
+The Assets have following details:- ID, Asset Name, Price, Last Update, Type of Asset
 
+There are total 400 random assets that has 200 currencies and 200 stocks and ID starts from 1.
+In order to generate random asset name ID is appended with the asset name.
+
+There is an update to asset price every second and table will be updated with the timestamp that the asset price changed.
+Price is updated from -1 to 1 with the assumption that asset price can go in Negative.
+Price update even upon sorting or filtering. 
+For, example you can filter on your favorite asset and see the price being changed every second.
+
+To run the project just run npm start, and it should open in a browser with Realtime Asset Data.
+
+Areas to Improve
+* Can add red or green color to negative or positive asset price
+* Can show graph of asset price going up or down
 * Add to favorites button
 * favorites should be persist  to localstorage
 * favorites should be pin to the top of the table
