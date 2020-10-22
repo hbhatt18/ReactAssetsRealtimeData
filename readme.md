@@ -3,7 +3,8 @@ This project shows Realtime values of assets and have following functionality
 * A table with all of the assets information. The Assets have following details:- ID, Asset Name, Price, Last Update, Type of Asset
 * The price and last update(of the price) values update every second
 * Sort each of the columns
-* Filter each of the columns. Text filter is used here.
+* Filter each of the columns. Numeric filter is used for ID, Price and Last Update. Text filter is used for Asset Name and Type of Asset
+* Last update is in unix timestamp
 
 There are total 400 random assets that has 200 currencies and 200 stocks and ID starts from 1.
 In order to generate random asset name ID is appended with the asset name.
