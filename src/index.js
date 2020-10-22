@@ -4,7 +4,7 @@ import './index.css'
 import './App.css'
 import BootstrapTable from 'react-bootstrap-table-next'
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css'
-import filterFactory, { textFilter } from 'react-bootstrap-table2-filter'
+import filterFactory, { textFilter, numberFilter } from 'react-bootstrap-table2-filter'
 
 // create the assets
 // here the name appends with id just to create unique asset name
@@ -28,7 +28,13 @@ const getAllAssets = (n) => {
   return result
 }
 
-const headerSortingStyle = { backgroundColor: 'lightgray' };
+const headerSortingStyle = { backgroundColor: 'lightgray' }
+
+const numberFilterStyle = numberFilter({
+  style: { display: 'inline-grid' },  // custom the style on number filter
+  numberStyle: { backgroundColor: 'lightgray', margin: '0px' },  // custom the style on number input/select
+  numberClassName: 'custom-number-class',  // custom the class on ber input/select
+})
 
 const columns = [
   {
@@ -36,7 +42,7 @@ const columns = [
     text: 'ID',
     sort: true,
     headerSortingStyle,
-    filter: textFilter()
+    filter: numberFilterStyle
   },
   {
     dataField: 'assetName',
@@ -50,14 +56,14 @@ const columns = [
     text: 'Price',
     sort: true,
     headerSortingStyle,
-    filter: textFilter()
+    filter: numberFilterStyle
   },
   {
     dataField: 'lastUpdate',
     text: 'Last Updated',
     sort: true,
     headerSortingStyle,
-    filter: textFilter()
+    filter: numberFilterStyle
   },
   {
     dataField: 'type',
