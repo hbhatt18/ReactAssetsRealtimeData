@@ -20,11 +20,10 @@ const createAsset = (id, type) => {
 
 const getAllAssets = (n) => {
   const result = []
-  // i starts from 1 because id starts from 1
   // call createAsset function to create 200 Stocks and 200 Currencies to make 400 assets
-  for (let i = 1; i <= n; i++) {
-    result.push(createAsset(i, 'Stock'))
-    result.push(createAsset(i + n, 'Currency'))
+  for (let i = 0; i < n; i++) {
+    result.push(createAsset(i + 1, 'Stock'))
+    result.push(createAsset(i + 1 + n, 'Currency'))
   }
   return result
 }
